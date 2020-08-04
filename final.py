@@ -66,7 +66,7 @@ ruleset = psm.RuleSet()
 # no vulnerable students left, even if the quota is not met, the
 # school can now accept non-vulnerable students.
 # rule_PR = psm.Rule(special_PR, quota=0.1)
-rule_CA = psm.Rule(special_CA, quota=0.34)
+rule_CA = psm.Rule(special_CA, quota=0.7)
 # rule_INT = psm.Rule(special_INT, quota=0)
 
 # Adding the rule to the ruleset. This means that a 'vulnerable' student has a higher priority.
@@ -134,6 +134,12 @@ import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 
+font = {'family': 'serif',
+        'color':  'maroon',
+        'weight': 'normal',
+        'size': 12,
+        'style': 'italic'
+        }
 
 labels = ['Assigned', 'Unassigned']
 inter = [len(assigned_int_students),len(unassigned_int_students)]
@@ -148,7 +154,7 @@ rects2 = ax.bar(x + width/2, ca, width, label='Canadian')
 
 # Add some text for labels, title and custom x-axis tick labels, etc.
 ax.set_ylabel('Frequency')
-ax.set_title('Students classification')
+ax.set_title('Matching students with schools', fontdict=font)
 plt.yticks(np.arange(0, 30, 5))
 ax.set_xticks(x)
 ax.set_xticklabels(labels)
@@ -172,6 +178,42 @@ autolabel(rects2)
 fig.tight_layout()
 
 plt.show()
-fig.savefig('plot.png')
+fig.savefig('plot.jpeg')
 
 print(len(assigned_int_students),len(unassigned_int_students), len(assigned_ca_students), len(unassigned_ca_students))
+
+assigned_students=[]
+unassigned_students=[]
+ca_students=[]
+int_students=[]
+for student in students:
+        if (student.charac=='CA'):
+            ca_students.append(student)
+#             print("Assigned "+student.name+" under "+student.charac)
+        else:
+            int_students.append(student)
+#             print("Assigned "+student.name+" under "+student.charac)
+
+# print(len(ca_students))
+# print(len(int_students))
+
+font = {'family': 'serif',
+        'color':  'indigo',
+        'weight': 'normal',
+        'size': 12,
+        }
+
+# Pie chart to show division of students based on nationality:
+labels = 'Canadian', 'International'
+sizes = [len(ca_students),len(int_students)]
+explode = (0, 0.1)  # only "explode" the 2nd slice (i.e. 'Hogs')
+
+fig1, ax1 = plt.subplots()
+ax1.set_title('Division of students based on Nationality', fontdict=font)
+ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
+        shadow=True, startangle=90)
+ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+plt.legend(bbox_to_anchor=(0.8,0.5),title='Student Status')
+fig1.savefig('pie.jpeg')
+
+plt.show()
