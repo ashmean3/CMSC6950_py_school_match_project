@@ -103,11 +103,11 @@ for student in students:
 #     if(index in assigned):
 #         print(row['Characteristics'])
 # #         print(index)
-for student in students:
-    try:
-        print("Student {} was assigned to School {} under {}".format(student.name, student.assigned_school.name,student.charac))
-    except:
-        print("Student {} was not assigned to any School".format(student.name))
+# for student in students:
+#     try:
+#         print("Student {} was assigned to School {} under {}".format(student.name, student.assigned_school.name,student.charac))
+#     except:
+#         print("Student {} was not assigned to any School".format(student.name))
 
 assigned_int_students=[]
 unassigned_int_students=[]
@@ -118,17 +118,17 @@ for student in students:
         if(student.assigned_school.name):
             if (student.charac=='CA'):
                 assigned_ca_students.append(student)
-                print("Assigned "+str(student.name)+" under "+str(student.charac))
+                # print("Assigned "+str(student.name)+" under "+str(student.charac))
             else:
                 assigned_int_students.append(student)
-                print("Assigned "+str(student.name)+" under "+str(student.charac))
+                # print("Assigned "+str(student.name)+" under "+str(student.charac))
     except:
         if (student.charac=='CA'):
             unassigned_ca_students.append(student)
-            print("Not Assigned "+str(student.name)+" under "+str(student.charac))
+            # print("Not Assigned "+str(student.name)+" under "+str(student.charac))
         else:
             unassigned_int_students.append(student)
-            print("Not Assigned "+str(student.name)+" under "+str(student.charac))
+            # print("Not Assigned "+str(student.name)+" under "+str(student.charac))
 
 import matplotlib
 import matplotlib.pyplot as plt
@@ -243,16 +243,19 @@ for student in students:
 
         assign_dict = {
             'Name': assigned_std_name,
-#             'Nationality': assigned_std_char,
-            'Assigned School': assigned_sch_name
-            
+            'Assigned School': assigned_sch_name,
+            'Nationality': assigned_std_char
                        
           }
 for row_std in unassigned_std_name:
     assign_dict['Name'].append(row_std)
     
 for row_sch in unassigned_sch_name:
-    assign_dict['Assigned School'].append(row_sch)
+     assign_dict['Assigned School'].append(row_sch)
+
+for row_charac in unassigned_std_char:
+     assign_dict['Nationality'].append(row_charac)
+    
 
 
 
