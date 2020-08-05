@@ -26,5 +26,5 @@ conda install -c conda-forge graph-tool
 	cd CMSC6950_py_school_match_project\
 	type make to start execution and generate the output files
 
-3. Move to data folder in the computer and look for output.csv file\
+3. Move to data folder in the computer and look for students_list.csv file\
 	output.csv file will contain the list of students and corresponding allocated schools along with students who are not assigned to a school.
