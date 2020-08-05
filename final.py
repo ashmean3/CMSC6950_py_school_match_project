@@ -66,7 +66,7 @@ ruleset = psm.RuleSet()
 # no vulnerable students left, even if the quota is not met, the
 # school can now accept non-vulnerable students.
 # rule_PR = psm.Rule(special_PR, quota=0.1)
-rule_CA = psm.Rule(special_CA, quota=0.7)
+rule_CA = psm.Rule(special_CA, quota=0.75)
 # rule_INT = psm.Rule(special_INT, quota=0)
 
 # Adding the rule to the ruleset. This means that a 'vulnerable' student has a higher priority.
@@ -178,7 +178,7 @@ autolabel(rects2)
 fig.tight_layout()
 
 plt.show()
-fig.savefig('plot.jpeg')
+fig.savefig('plot.jpg')
 
 print(len(assigned_int_students),len(unassigned_int_students), len(assigned_ca_students), len(unassigned_ca_students))
 
@@ -213,7 +213,48 @@ ax1.set_title('Division of students based on Nationality', fontdict=font)
 ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
         shadow=True, startangle=90)
 ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-plt.legend(bbox_to_anchor=(0.8,0.5),title='Student Status')
-fig1.savefig('pie.jpeg')
+plt.legend(bbox_to_anchor=(0.81,0.3),title='Student Status')
+fig1.savefig('pie.jpg')
 
 plt.show()
+
+#Creating outputfile
+assigned_std_name = []
+assigned_std_char = []
+assigned_sch_name = []
+
+unassigned_std_name = []
+unassigned_std_char = []
+unassigned_sch_name = []
+for student in students:
+     try:
+        if(student.assigned_school.name):
+
+
+                assigned_std_name.append(student.name)
+                assigned_sch_name.append(student.assigned_school.name)
+                assigned_std_char.append(student.charac)
+    
+     except:
+            
+        unassigned_std_name.append(student.name)
+        unassigned_sch_name.append('None')
+        unassigned_std_char.append(student.charac)
+
+        assign_dict = {
+            'Name': assigned_std_name,
+#             'Nationality': assigned_std_char,
+            'Assigned School': assigned_sch_name
+            
+                       
+          }
+for row_std in unassigned_std_name:
+    assign_dict['Name'].append(row_std)
+    
+for row_sch in unassigned_sch_name:
+    assign_dict['Assigned School'].append(row_sch)
+
+
+
+df = pd.DataFrame(assign_dict)
+df.to_csv(r"data/students_list.csv", index = False)

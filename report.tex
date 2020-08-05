@@ -1,0 +1,180 @@
+\documentclass[twocolumn]{bmcart}
+\let\Tiny=\tiny
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[square,numbers]{natbib}
+\bibliographystyle{abbrvnat}
+
+\usepackage{amsmath, amssymb}
+
+\begin{document}
+	
+	%%% Start of article front matter
+	\begin{frontmatter}
+		
+		\begin{fmbox}
+			\dochead{Project Report}
+			
+			
+			\title{Py-School-Match}
+			
+			
+			\author[
+			addressref={aff1},
+			email={aksran@mun.ca}
+			]{\inits{AKS}\fnm{Ashmean Kaur} \snm{Sran}}
+			
+			
+			
+			\address[id=aff1]{%                           % unique id
+				\orgname{Faculty of Business Administration, Memorial University of Newfoundland}}
+			
+			\begin{abstractbox}
+				
+				\begin{abstract} % abstract
+					The school choice problem is formulated as a one-sided or a two-sided matching problem. Py-school-match aims to solve the problem of matching students with schools according to a pre-defined set of criteria. It is an open-source Python package that implements multiple matching algorithms in order to assign students to schools.  It is specifically designed to allocate students to schools by evaluating different settings and algorithms, without the need to adapt or develop a complete solution. It is a better way to match prospective students with the schools they want to apply for.
+					
+				\end{abstract}
+				
+				\begin{keyword}
+					\kwd{students}
+					\kwd{schools}
+					\kwd{criteria}
+					\kwd{matching}
+				\end{keyword}
+				
+				
+			\end{abstractbox}
+			%
+		\end{fmbox}% uncomment this for twcolumn layout
+		
+	\end{frontmatter}
+	
+	
+	\section*{Introduction}
+	\vspace{\baselineskip}
+	
+	Matching students with schools plays an integral part in shaping future of the young minds all around the world. In many countries where schools cannot discriminate among student applicants (no entrance exams, no interviews, no previous grades examination, etc.), there is always one
+	question that cannot be answered directly: How to assign students fairly and efficiently?
+	\vspace{\baselineskip}
+	Over the years, there have been many proposed solutions to this problem. These vary from simple “lotteries” (random priority assignment) to more complex graph algorithms. Because each option has its own strengths and weaknesses, and given that in the real world there is an extra layer of requirements (quotas, special conditions, ranks of preference, etc.) it is vital to analyze and simulate every available option. The correct selection of the algorithm can have serious effects on efficiency and fairness, as it has been exemplified by studies conducted in school systems from Boston \cite{sub1} and New York \cite{sub2}.
+	
+	
+	
+	\section*{Method}
+	\vspace{\baselineskip}
+	Py-school-match \cite{article} is a Python library that implements multiple matching algorithms and aims to ease the process of choosing the best alternative for each school system. It allows researchers to simply specify the country’s requirements or conditions, and then run interchangeably the different algorithms to compare their results. What makes py-school-match different from other libraries is that it is specifically created to be used in the student-to-school assignment problem. Another distinctive characteristic is that it allows the use of quotas, priorities, capacities, among others, without much effort. \vspace{\baselineskip}
+	py-school-match provides multiple algorithms ready to use: \vspace{\baselineskip}
+	
+	\begin{sloppypar}
+		\begin{itemize}
+			\vspace{-0.4cm}\item Top Trading Cycles (TTC) \vspace{\baselineskip}
+			\vspace{-0.4cm}\item Deferred acceptance with multiple tie-breaking (DAMTB) \vspace{\baselineskip}
+			\vspace{-0.4cm}\item Deferred acceptance with single tie-breaking (DASTB) \vspace{\baselineskip}
+			\vspace{-0.4cm}\item Stable improvement cycles (SIC) \vspace{\baselineskip}
+			\vspace{-0.4cm}\item Deferred Acceptance with multiple tie-breaking, plus stable cycles (MSIC) \vspace{\baselineskip}
+			\vspace{-0.4cm}\item Deferred Acceptance with single tie-breaking, plus non-stable cycles (NSIC)
+		\end{itemize}
+	\end{sloppypar}
+	\section*{Procedure}
+	\vspace{\baselineskip}
+	We have worked on the Stable improvement cycles (SIC) algorithm for assigning seats to a list of students based on their school preference and their nationality acceptance quota in those schools. The procedure has been explained as follows: \vspace{\baselineskip}
+	\vspace{\baselineskip}
+	\begin{enumerate}
+		\vspace{-0.4cm}\item The package will read the data file of name of students with their preferences for schools and their nationality status. It will also read the data file of school names and the seats available in each school. \vspace{\baselineskip}
+		\vspace{-0.4cm}\item It will use the SIC algorithm and assign schools to the students based on their preference of schools and the characteristics(nationality status). \vspace{\baselineskip}
+		\vspace{-0.4cm}\item The users can change the quota percentage as per their school guidelines for assigning students to the schools. According to the percentage of quota set by the user, the ratio of students assigned to school and not assigned to schools will fluctuate. \vspace{\baselineskip}
+	\end{enumerate}
+	
+	
+	\section*{Results}
+	\vspace{\baselineskip}
+	In this section, a list of outputs generated by using the py-school-match package are mentioned.\vspace{\baselineskip}
+	
+	\begin{itemize}
+		\vspace{-0.4cm}\item The py-school-match package will generate a .csv file showing list of students who got the schools assigned based on the quota of nationality characteristic. \vspace{\baselineskip}
+		\vspace{-0.4cm}\item It will also include the list of students who did not get assigned to any school by using the package. \vspace{\baselineskip}
+		\vspace{-0.4cm}\item The output will also include representation of number of students who were assigned and not assigned to schools with the breakdown of their nationality. \vspace{\baselineskip}
+		\vspace{-0.4cm}\item Another representation will show the total number of students based on the difference of nationality. \vspace{\baselineskip}
+	\end{itemize}
+	
+	\section*{Novelty}
+	
+	The python library of py-school-match has been updated to generate more well-defined results. Earlier, the package was only printing students ids that gets assigned to schools ids. But now, the package generates a .csv file which shows names of the students and schools that are assigned along with the students who did not get assigned to any school.
+	
+	\section*{Figures and Tables}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=7cm]{pie.jpg}
+		\caption{Distribution applicants as per their origin}
+		\label{fig:Distribution}
+	\end{figure}
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=7cm]{plot.jpg}
+		\caption{Percentage distribution of assigned and unassigned students as per their origination}
+		\label{fig:allocation}
+	\end{figure}
+	
+	{\small
+		%\begin{landscape}
+		\begin{table}[h!]
+			\centering
+			\small
+			%\centering\setlength\tabcolsep{5pt}
+			%\makegapedcells
+			%\begin{table}[h!]
+			\caption{Output file showing assigned/non-assigned schools to students}
+			\label{table:review}
+			\begin{tabular}{| p{3cm}| p{3cm}| }
+				\hline
+				Student Name & Assigned School \\ \hline
+				
+				Sheridan Saville King & Courtice Secondary School\\\hline
+				
+				Sebastian Saber King & Brock High School\\\hline
+				
+				Selwyn Salomon King & Clarke High School\\\hline
+				
+				Symon Sylvain King & None\\\hline
+				
+				Simeon Senior King & None\\\hline
+				
+				Stetson Stephane King & None\\\hline
+				
+				
+				%\bottomrule
+			\end{tabular}%
+		\end{table}%
+		%\end{landscape}
+	}
+	% \section*{References}
+	\begin{backmatter}
+		\begin{thebibliography}{9}
+			\bibitem{sub1} 
+			Abdulkadiroğlu, Atila, Parag A. Pathak, Alvin E. Roth, and Tayfun Sönmez.
+			\textit{"The Boston Public School Match." American Economic Review, 95 (2): 368-371}. 
+			DOI: 10.1257/000282805774669637(2005).
+			\vspace{\baselineskip}
+			
+			\bibitem{sub2} 
+			Abdulkadiroğlu, Atila, Parag A. Pathak, and Alvin E. Roth.
+			\textit{"The New York City High School Match."}
+			American Economic Review, {95 (2): 364-367}, DOI: 10.1257/000282805774670167 (2005)
+			\vspace{\baselineskip}
+			\bibitem{article} 
+			Garizio, Iacopo. 
+			\textit{Py-school-match: Matching algorithms to assign students to schools}. 
+			Journal of Open Source Software, Opt. Express {4(34)},
+			1111, https://doi.org/10.21105/joss.01111 (2019).
+			
+		\end{thebibliography}
+		
+		
+		
+	\end{backmatter}
+	
+\end{document}
