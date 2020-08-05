@@ -118,17 +118,17 @@ for student in students:
         if(student.assigned_school.name):
             if (student.charac=='CA'):
                 assigned_ca_students.append(student)
-                print("Assigned "+student.name+" under "+student.charac)
+                print("Assigned "+str(student.name)+" under "+str(student.charac))
             else:
                 assigned_int_students.append(student)
-                print("Assigned "+student.name+" under "+student.charac)
+                print("Assigned "+str(student.name)+" under "+str(student.charac))
     except:
         if (student.charac=='CA'):
             unassigned_ca_students.append(student)
-            print("Not Assigned "+student.name+" under "+student.charac)
+            print("Not Assigned "+str(student.name)+" under "+str(student.charac))
         else:
             unassigned_int_students.append(student)
-            print("Not Assigned "+student.name+" under "+student.charac)
+            print("Not Assigned "+str(student.name)+" under "+str(student.charac))
 
 import matplotlib
 import matplotlib.pyplot as plt
@@ -155,7 +155,7 @@ rects2 = ax.bar(x + width/2, ca, width, label='Canadian')
 # Add some text for labels, title and custom x-axis tick labels, etc.
 ax.set_ylabel('Frequency')
 ax.set_title('Matching students with schools', fontdict=font)
-plt.yticks(np.arange(0, 30, 5))
+plt.yticks(np.arange(0, 1000, 100))
 ax.set_xticks(x)
 ax.set_xticklabels(labels)
 ax.legend()
