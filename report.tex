@@ -6,7 +6,9 @@
 \usepackage{graphicx}
 \usepackage[square,numbers]{natbib}
 \bibliographystyle{abbrvnat}
-
+\usepackage[T1]{fontenc}
+\usepackage{makecell}
+\renewcommand\theadfont{\bfseries\sffamily}
 \usepackage{amsmath, amssymb}
 
 \begin{document}
@@ -131,7 +133,7 @@
 			\label{table:review}
 			\begin{tabular}{| p{3cm}| p{3cm}| }
 				\hline
-				Student Name & Assigned School \\ \hline
+				\thead{Student Name} & \thead{Assigned School}  \\ \hline
 				
 				Sheridan Saville King & Courtice Secondary School\\\hline
 				
