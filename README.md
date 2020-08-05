@@ -1,5 +1,9 @@
 # Py-School-Match
 
+## Brief Description
+
+This python package implements matching algorithms in order to assign students to schools.
+
 ## Installation 
 ### Dependencies:
 graph-tool (>= 2.27)\
