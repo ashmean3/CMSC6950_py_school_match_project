@@ -66,14 +66,14 @@ ruleset = psm.RuleSet()
 # no vulnerable students left, even if the quota is not met, the
 # school can now accept non-vulnerable students.
 # rule_PR = psm.Rule(special_PR, quota=0.1)
-rule_CA = psm.Rule(special_CA, quota=0.75)
-# rule_INT = psm.Rule(special_INT, quota=0)
+# rule_CA = psm.Rule(special_CA, quota=0.1)
+rule_INT = psm.Rule(special_INT, quota=0.67)
 
 # Adding the rule to the ruleset. This means that a 'vulnerable' student has a higher priority.
 # Note that rules are added in order (from higher priority to lower priority)
 # ruleset.add_rule(rule_PR)
-ruleset.add_rule(rule_CA)
-# ruleset.add_rule(rule_INT)
+# ruleset.add_rule(rule_CA)
+ruleset.add_rule(rule_INT)
 
 # Creating a social planner using the objects above.
 planner = psm.SocialPlanner(students, schools, ruleset)
@@ -180,7 +180,7 @@ fig.tight_layout()
 plt.show()
 fig.savefig('plot.jpg')
 
-print(len(assigned_int_students),len(unassigned_int_students), len(assigned_ca_students), len(unassigned_ca_students))
+# print(len(assigned_int_students),len(unassigned_int_students), len(assigned_ca_students), len(unassigned_ca_students))
 
 assigned_students=[]
 unassigned_students=[]
