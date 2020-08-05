@@ -2,8 +2,8 @@
 
 ## Installation 
 ### Dependencies:
-graph-tool (>= 2.27)
-sudo apt install latexmk
+graph-tool (>= 2.27)\
+sudo apt install latexmk\
 sudo apt install texlive-full
 
 ### To create virtual environment:
